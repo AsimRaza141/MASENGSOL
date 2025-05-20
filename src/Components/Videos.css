@@ -1,0 +1,95 @@
+/* Style for the video gallery title */
+.video-gallery-title {
+    color: OrangeRed;
+    font-weight: bold;
+    text-align: center;
+    font-size: 2.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+/* Video card styling */
+.video-card {
+    text-align: center;
+    margin-bottom: 20px;
+    transition: transform 0.5s ease-in-out;
+    animation: fadeInVideo 2s ease-in-out forwards;
+}
+
+/* Keyframe animation for videos */
+@keyframes fadeInVideo {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Video wrapper styling */
+.video-wrapper {
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Video styling */
+.video {
+    border-radius: 10px;
+    max-width: 100%;
+    transition: transform 0.4s ease-in-out;
+    position: relative;
+    z-index: 1;
+}
+
+/* Hover effect to play video */
+.video-wrapper:hover .video {
+    transform: scale(1.05);
+}
+
+/* Description styling */
+.description {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Additional hover effect for description (optional) */
+.video-card:hover .description {
+    opacity: 1;
+}
+
+/* Container for multiple videos (e.g., on home page or gallery) */
+.video-container {
+    position: relative;
+    z-index: 1; /* Ensure all videos stay below navbar dropdown (z-index: 3000) */
+}
+
+/* Target common slider containers (e.g., Slick, Swiper) for home page moving videos */
+.slick-slider,
+.swiper-container,
+.home-videos-slider {
+    position: relative;
+    z-index: 1 !important; /* Override default slider z-index */
+    overflow: hidden; /* Contain animations */
+}
+
+/* Target moving videos with custom animations */
+.moving-video {
+    position: relative;
+    z-index: 1;
+}
+
+/* Media query to handle larger screens */
+@media screen and (min-width: 1024px) {
+    .video-wrapper:hover .video {
+        transform: scale(1.1);
+    }
+
+    .video-gallery-title {
+        animation: fadeInTitle 2s ease-in-out forwards;
+    }
+}

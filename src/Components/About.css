@@ -1,0 +1,393 @@
+/* CSS Variables for maintainability */
+:root {
+    --primary-color: OrangeRed;
+    --secondary-color: #f0f4f8;
+    --text-color: #333;
+    --accent-color: #ff4500;
+    --shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    --spacing: 20px;
+    --transition: all 0.4s ease-in-out;
+    --row-height: 400px;
+}
+
+/* Base Styles */
+.about-container {
+    padding: var(--spacing);
+    background: linear-gradient(135deg, #ffffff 0%, var(--secondary-color) 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-title {
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: calc(var(--spacing) * 2);
+    font-weight: 800;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: slideDown 1s ease-out;
+}
+
+.content-wrapper {
+    display: grid;
+    grid-template-rows: var(--row-height) var(--row-height) var(--row-height);
+    gap: calc(var(--spacing) * 2);
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: var(--spacing);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    min-height: var(--row-height);
+}
+
+/* First Row: Introduction */
+.intro-row {
+    background: rgba(255, 69, 0, 0.05);
+    flex-wrap: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-shadow: var(--shadow);
+    overflow: visible;
+}
+
+.intro-text {
+    flex: 1;
+    min-width: 200px;
+    padding: calc(var(--spacing) / 2);
+    margin: 0;
+    text-align: left;
+    max-width: 48%;
+}
+
+.intro-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing);
+}
+
+.intro-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    text-align: justify;
+    position: relative;
+}
+
+.intro-description::before {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    position: absolute;
+    left: -20px;
+    top: -10px;
+}
+
+.intro-description::after {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    position: absolute;
+    right: -20px;
+    bottom: -10px;
+}
+
+.intro-image {
+    flex: 1;
+    min-width: 250px;
+    max-width: 52%;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    border-radius: 20px;
+    flex-shrink: 0;
+    height: 100%;
+}
+
+.intro-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: var(--transition);
+}
+
+/* Removed hover effect */
+.intro-image:hover img {
+    transform: none;
+}
+
+/* Second Row: Mission */
+.mission-row {
+    background: linear-gradient(90deg, rgba(255, 69, 0, 0.1) 0%, #ffffff 100%);
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+    box-shadow: var(--shadow);
+}
+
+.mission-content {
+    max-width: 600px;
+}
+
+.mission-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing);
+}
+
+.mission-description {
+    font-size: 1.4rem;
+    line-height: 1.9;
+    color: var(--text-color);
+    font-style: italic;
+    padding: var(--spacing);
+    position: relative;
+}
+
+.mission-description::before,
+.mission-description::after {
+    font-size: 3rem;
+    color: var(--accent-color);
+    position: absolute;
+}
+
+.mission-description::before {
+    left: -10px;
+    top: -20px;
+}
+
+.mission-description::after {
+    right: -10px;
+    bottom: -20px;
+}
+
+/* Third Row: Vision */
+.vision-row {
+    background: rgba(255, 69, 0, 0.05);
+    flex-wrap: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-shadow: var(--shadow);
+    overflow: visible;
+}
+
+.vision-text {
+    flex: 1;
+    min-width: 200px;
+    padding: calc(var(--spacing) / 2);
+    margin: 0;
+    text-align: left;
+    max-width: 48%;
+}
+
+.vision-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing);
+}
+
+.vision-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    text-align: justify;
+    position: relative;
+}
+
+.vision-image {
+    flex: 1;
+    min-width: 250px;
+    max-width: 52%;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    border-radius: 20px;
+    flex-shrink: 0;
+    height: 100%;
+}
+
+.vision-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: var(--transition);
+}
+
+/* Removed hover effect */
+.vision-image:hover img {
+    transform: none;
+}
+
+.vision-description::before {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    position: absolute;
+    left: -20px;
+    top: -10px;
+}
+
+.vision-description::after {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    position: absolute;
+    right: -20px;
+    bottom: -10px;
+}
+
+/* Animations */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    /* For Mobile and Tablets */
+    .intro-row,
+    .vision-row {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        padding: calc(var(--spacing) / 2);
+        gap: 10px;
+        min-height: auto;
+    }
+
+    /* Ensure Image comes before Text */
+    .intro-image,
+    .vision-image {
+        order: 1; /* Image comes first */
+    }
+
+    .intro-text,
+    .vision-text {
+        order: 2; /* Text comes after image */
+        max-width: 100%;
+        padding: calc(var(--spacing) / 3);
+    }
+
+    .intro-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+        height: 800px; /* Increased height for mobile view */
+        max-height: none;
+        width: 100%; /* Ensure full width */
+    }
+
+    .intro-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Maintain cover, but height is prioritized */
+        border-radius: 20px;
+    }
+
+    .vision-image {
+        margin-right: 0;
+        margin-bottom: 10px;
+        height: 120vh;
+        max-height: none;
+    }
+
+    .vision-text {
+        margin-left: 0;
+    }
+
+    .mission-row {
+        padding: calc(var(--spacing) / 2);
+        height: auto;
+    }
+
+    .mission-content {
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about-title {
+        font-size: 2rem;
+    }
+
+    .intro-title,
+    .mission-title,
+    .vision-title {
+        font-size: 1.8rem;
+    }
+
+    .mission-description,
+    .intro-description,
+    .vision-description {
+        font-size: 1rem;
+    }
+
+    .intro-image {
+        height: 800px; /* Consistent height for smaller screens */
+        margin-bottom: 20px;
+        max-height: none;
+        width: 100%;
+    }
+
+    .intro-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .vision-image {
+        height: 120vh;
+        margin-bottom: 10px;
+        max-height: none;
+    }
+
+    .mission-row {
+        height: auto;
+        padding: calc(var(--spacing) / 2);
+    }
+
+    .mission-description::before,
+    .mission-description::after,
+    .intro-description::before,
+    .intro-description::after,
+    .vision-description::before,
+    .vision-description::after {
+        font-size: 1.5rem;
+        left: -10px;
+        top: -5px;
+        right: -10px;
+        bottom: -5px;
+    }
+
+    .intro-text,
+    .vision-text {
+        padding: calc(var(--spacing) / 3);
+    }
+}

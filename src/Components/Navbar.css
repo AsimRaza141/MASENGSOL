@@ -1,0 +1,208 @@
+.header-background {
+  background-image: url('solarpanel.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  opacity: 10;
+  z-index: 1;
+}
+
+.header-wrapper {
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(0.6px);
+  padding: 5px;
+}
+
+.header-top-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.header-logo {
+  width: 70vw;
+  max-width: 400px;
+}
+
+.header-logo-image {
+  max-width: 100%;
+}
+
+.slogan-wrapper {
+  overflow: hidden;
+  width: 300px;
+  position: relative;
+}
+
+.slogan {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: orangered;
+  animation: slideSlogan 10s linear infinite;
+}
+
+@keyframes slideSlogan {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.fade-in {
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.25s;
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.nav-item {
+  color: orangered;
+  text-decoration: none;
+  z-index: 2000;
+  cursor: pointer;
+  position: relative;
+}
+
+.sub-menu {
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 10px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid orangered;
+  z-index: 3000;
+  list-style-type: none;
+  color: black;
+  transition: ease-in-out 0.5s;
+}
+
+.sub-menu li {
+  padding: 5px;
+}
+
+.sub-menu li a {
+  text-decoration: none;
+  color: orangered;
+}
+
+.video-container {
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 1024px) {
+  .header-mobile-menu {
+    display: none;
+  }
+
+  .widescreen {
+    display: flex;
+    gap: 10px;
+  }
+
+  .header-slogan {
+    color: white;
+    font-size: 1.5rem;
+  }
+
+  .nav-item:hover {
+    color: white;
+    scale: 1.1;
+    border-bottom: 2px solid orangered;
+  }
+
+  .header-bottom-row {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 10px 30px 10px;
+    z-index: 2000;
+    position: relative; /* Added to establish stacking context */
+  }
+
+  .nav-menu-list {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    gap: 25px;
+    align-items: center;
+    padding-right: 20px;
+    list-style-type: none;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .sub-menu li a:hover {
+    border-bottom: 1px solid orangered;
+    color: orangered;
+  }
+}
+
+@media (max-width: 1024px) {
+  .widescreen {
+    display: none;
+  }
+
+  .header-mobile-menu {
+    display: block;
+    z-index: 500;
+  }
+
+  .header-bottom-row {
+    display: flex;
+    flex-direction: column-reverse;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.9);
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px 30px 10px;
+    z-index: 100;
+  }
+
+  .nav-menu-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    gap: 25px;
+    align-items: center;
+    padding-right: 20px;
+    list-style-type: none;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0;
+    z-index: 500;
+    margin-top: 40px;
+  }
+
+  .nav-link {
+    z-index: 500;
+  }
+}

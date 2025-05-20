@@ -1,0 +1,159 @@
+/* Services Navbar with Sliding Text */
+.services-navbar {
+  background-color: #333;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.services-nav-text {
+  white-space: nowrap;
+  display: inline-block;
+  animation: slideText 15s linear infinite;
+}
+
+.services-nav-text h1 {
+  color: OrangeRed;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0 20px;
+}
+
+/* Slide animation for the text (left to right) */
+@keyframes slideText {
+  0% {
+      transform: translateX(-100%);
+  }
+  100% {
+      transform: translateX(500%);
+  }
+}
+
+/* Container for Service Cards */
+.solar-services,
+.other-services {
+  display: flex;
+  flex-direction: row; /* Arrange cards in a single row */
+  flex-wrap: nowrap; /* Prevent wrapping to keep all cards in one row */
+  gap: 20px; /* Space between cards */
+  overflow-x: auto; /* Allow horizontal scrolling if cards overflow */
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px; /* Constrain width for larger screens */
+  margin: 0 auto;
+}
+
+/* Hide scrollbar for cleaner look */
+.solar-services::-webkit-scrollbar,
+.other-services::-webkit-scrollbar {
+  display: none;
+}
+
+.solar-services,
+.other-services {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Card Styles */
+.service-card {
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 0 0 300px; /* Fixed width for each card, adjust as needed */
+  background: #fff; /* Ensure cards have a background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Default shadow */
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.service-card .card-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.2;
+  padding: 15px;
+}
+
+.service-card .card-header span {
+  display: block;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Bullet Style for Original Cards (Solar System Design and Application) */
+.service-list {
+  padding-left: 1.5rem;
+  line-height: 1.7;
+  list-style-type: none;
+  padding: 15px;
+}
+
+.service-list li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 25px;
+}
+
+.service-list li::before {
+  content: '★';
+  position: absolute;
+  left: 0;
+  color: orangered;
+}
+
+/* Bullet Style for New Cards (Other Services) */
+.service-list-tick {
+  padding-left: 1.5rem;
+  line-height: 1.7;
+  list-style-type: none;
+  padding: 15px;
+}
+
+.service-list-tick li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 25px;
+}
+
+.service-list-tick li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: green;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .service-card {
+      flex: 0 0 250px; /* Reduce card width in mobile view */
+      transform: scale(0.9); /* Slightly scale down cards */
+  }
+
+  .service-card .card-header {
+      font-size: 1.3rem; /* Reduce header font size */
+      padding: 10px;
+  }
+
+  .service-card .card-header span {
+      font-size: 0.9rem;
+  }
+
+  .service-list,
+  .service-list-tick {
+      padding: 10px;
+      font-size: 0.9rem; /* Reduce list font size */
+  }
+
+  .solar-services,
+  .other-services {
+      gap: 15px; /* Reduce gap between cards */
+      padding: 15px;
+  }
+}

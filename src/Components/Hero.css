@@ -1,0 +1,40 @@
+.hero {
+  position: relative; /* Establish stacking context */
+  width: 100%;
+  /* height: 100vh;  // Full screen height */
+  overflow: hidden;
+  display: flex;
+  z-index: 0 !important; /* Force hero section below navbar (z-index: 2000) */
+}
+
+.mas-video {
+  /* position: absolute;
+  top: 50%;
+  left: 50%; */
+  width: 100vw; /* Increase width to fill more of the screen */ 
+  height: auto; /* Maintain height automatically */
+  /* transform: translate(-50%, -50%); // Center the video */
+  object-fit: contain; /* Keep the aspect ratio without cropping */
+  z-index: -1 !important; /* Force videos to the back */
+  overflow: hidden;
+}
+
+.mas_carousel {
+  position: relative; /* Ensure carousel respects hero's stacking context */
+  z-index: 0 !important; /* Force carousel below navbar */
+}
+
+/* Target Bootstrap Carousel internals to ensure all parts stay behind */
+.carousel,
+.carousel-inner,
+.carousel-item {
+  position: relative;
+  z-index: 0 !important; /* Override any default z-index from react-bootstrap */
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .mas_carousel {
+    z-index: 0 !important; /* Consistent z-index in mobile view */
+  }
+}

@@ -1,0 +1,301 @@
+/* CSS Variables for maintainability */
+:root {
+  --primary-color: OrangeRed;
+  --secondary-color: #f0f4f8;
+  --text-color: #333;
+  --accent-color: #ff4500;
+  --shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  --spacing: 20px;
+  --transition: all 0.4s ease-in-out;
+  --photo-size: 350px; /* Fixed size for both width and height */
+}
+
+/* Gallery Container */
+.gallery-container {
+  padding: var(--spacing);
+  background: linear-gradient(135deg, #ffffff 0%, var(--secondary-color) 100%);
+  background-image: url('../images/MAS-01.png'); /* Large background watermark */
+  background-size: 1000px; /* Large watermark size */
+  background-position: center; /* Center the watermark */
+  background-repeat: no-repeat; /* Single watermark */
+  background-attachment: fixed; /* Keep watermark fixed while scrolling */
+  min-height: 100vh;
+  max-width: 1800px; /* Wider container for larger screens */
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Add semi-transparent overlay to improve readability over watermark */
+.gallery-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7); /* Consistent opacity */
+  z-index: 1;
+}
+
+/* Ensure content is above the overlay */
+.gallery-container > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Style for the gallery title */
+.gallery-title {
+  color: var(--primary-color);
+  font-weight: 800;
+  text-align: center;
+  font-size: 3.5rem;
+  margin-bottom: calc(var(--spacing) * 2);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fadeInTitle 1.5s ease-in-out forwards;
+}
+
+/* Keyframe animation for the title */
+@keyframes fadeInTitle {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Photo card styling */
+.photo-card {
+  margin-bottom: calc(var(--spacing) * 2);
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  animation: fadeInPhoto 1.5s ease-in-out forwards;
+  animation-delay: calc(0.2s * var(--animation-order));
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+}
+
+/* Keyframe for photos */
+@keyframes fadeInPhoto {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Photo wrapper */
+.photo-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  width: var(--photo-size);
+  height: var(--photo-size);
+  display: flex;
+  justify-content: center; /* Center photo */
+  align-items: center; /* Center photo */
+}
+
+/* Photo styling */
+.photo {
+  width: 100%; /* Stretch to fill wrapper by default */
+  height: 100%; /* Stretch to fill wrapper by default */
+  border-radius: 15px;
+}
+
+/* Vertical fit for specified images */
+.photo.vertical-fit {
+  width: var(--photo-size);
+  height: var(--photo-size);
+  object-fit: cover; /* Scale to fill height, crop width */
+  object-position: center; /* Center the image */
+  background: #000;
+}
+
+/* Description styling */
+.description {
+  font-size: 1.1rem;
+  margin-top: var(--spacing);
+  padding: 12px 15px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  color: var(--text-color);
+  text-align: center;
+  opacity: 0;
+  animation: fadeInDescription 1s ease-in-out forwards;
+  animation-delay: calc(0.5s + 0.2s * var(--animation-order));
+  width: var(--photo-size); /* Match photo width for alignment */
+  display: flex;
+  justify-content: center; /* Center text */
+  align-items: center; /* Center text */
+}
+
+/* Keyframe animation for description */
+@keyframes fadeInDescription {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ensure 4 photos per row */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center photos in row */
+  align-items: center; /* Vertically center rows */
+  margin-left: calc(var(--spacing) * -0.5);
+  margin-right: calc(var(--spacing) * -0.5);
+}
+
+.col-lg-3,
+.col-md-3,
+.col-sm-3 {
+  flex: 0 0 25%; /* Exactly 25% for 4 columns */
+  max-width: 25%;
+  padding: 0 calc(var(--spacing) / 2); /* 10px padding */
+  display: flex;
+  justify-content: center; /* Center photo within column */
+  align-items: center; /* Center vertically */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+  :root {
+    --photo-size: 300px; /* Smaller square size */
+  }
+
+  .gallery-title {
+    font-size: 3rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .gallery-container {
+    background-size: 800px; /* Smaller watermark */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --photo-size: 250px; /* Smaller square size */
+  }
+
+  .gallery-title {
+    font-size: 2.5rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .gallery-container {
+    background-size: 600px; /* Smaller watermark */
+  }
+
+  .col-lg-3,
+  .col-md-3,
+  .col-sm-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  :root {
+    --photo-size: 135px; /* Adjusted size for mobile */
+  }
+
+  .gallery-title {
+    font-size: 2.2rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .gallery-container {
+    background-size: 300px; /* Smaller watermark */
+    padding: 10px; /* Consistent padding */
+  }
+
+  .row {
+    justify-content: center; /* Center the two images */
+    margin-left: calc(var(--spacing) / 4 * -1); /* -5px */
+    margin-right: calc(var(--spacing) / 4 * -1); /* -5px */
+  }
+
+  .col-lg-3,
+  .col-md-3,
+  .col-sm-3 {
+    flex: 0 0 50%; /* 2 columns per row */
+    max-width: 50%;
+    padding: 0 calc(var(--spacing) / 4); /* 5px padding */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .photo-card {
+    margin-bottom: calc(var(--spacing) * 2); /* 40px */
+  }
+}
+
+@media screen and (max-width: 400px) {
+  :root {
+    --photo-size: 105px; /* Adjusted size for very small screens */
+  }
+
+  .gallery-title {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .gallery-container {
+    background-size: 250px; /* Smallest watermark */
+    padding: 5px; /* Consistent padding */
+  }
+
+  .row {
+    justify-content: center; /* Center the two images */
+    margin-left: calc(var(--spacing) / 4 * -1); /* -5px */
+    margin-right: calc(var(--spacing) / 4 * -1); /* -5px */
+  }
+
+  .col-lg-3,
+  .col-md-3,
+  .col-sm-3 {
+    flex: 0 0 50%; /* Maintain 2 columns */
+    max-width: 50%;
+    padding: 0 calc(var(--spacing) / 4); /* 5px padding */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .photo-card {
+    margin-bottom: 30px; /* Slightly reduced for very small screens */
+  }
+}

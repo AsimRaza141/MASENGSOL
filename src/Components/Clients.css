@@ -1,0 +1,35 @@
+.section-title {
+    text-align: center;
+    font-weight: bold;
+    color: orangered; /* OrangeRed color */
+    margin-bottom: 20px; /* Space below the heading */
+  }
+  
+  .image-container {
+    display: flex;
+    justify-content: center; /* Center the images horizontally */
+    margin-bottom: 30px; /* Space below the images */
+  }
+  
+  .client-image,
+  .supplier-image {
+    max-width: 100%; /* Ensure the image fits the width of its container */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Add transition effects */
+    border-radius: 10px; /* Optional: Round corners of the images */
+  }
+  
+  .client-image:hover,
+  .supplier-image:hover {
+    transform: scale(1.05); /* Scale up on hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+  }
+  
+  /* Additional styling to fit images according to the page */
+  @media (max-width: 768px) {
+    .client-image,
+    .supplier-image {
+      width: 90%; /* Make images smaller on mobile devices */
+    }
+  }
+  
